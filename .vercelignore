@@ -1,0 +1,6 @@
+.agents
+skills
+*.md
+.DS_Store
+.git
+.gemini
