@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ابنِ هويتك الرقمية | عرض تقديمي</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg-canvas: #09090b;
@@ -14,11 +17,11 @@
       --bg-card-hover: #161922;
       --border-subtle: #27272a;
       --border-hover: #3f3f46;
-      
+
       --text-primary: #f4f4f5;
       --text-secondary: #a1a1aa;
       --text-muted: #71717a;
-      
+
       --accent-blue: #3b82f6;
       --accent-emerald: #10b981;
       --accent-amber: #f59e0b;
@@ -125,11 +128,31 @@
       color: var(--text-secondary);
     }
 
-    .badge-cyan, .badge-blue { color: #60a5fa; border-color: rgba(59, 130, 246, 0.3); }
-    .badge-purple { color: #c084fc; border-color: rgba(168, 85, 247, 0.3); }
-    .badge-emerald { color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
-    .badge-amber { color: #fbbf24; border-color: rgba(245, 158, 11, 0.3); }
-    .badge-rose { color: #fb7185; border-color: rgba(244, 63, 94, 0.3); }
+    .badge-cyan,
+    .badge-blue {
+      color: #60a5fa;
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .badge-purple {
+      color: #c084fc;
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .badge-emerald {
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-amber {
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-rose {
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.3);
+    }
 
     .slide-title {
       font-size: 3.4rem;
@@ -412,7 +435,7 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 20px 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
       z-index: 120;
       display: none;
     }
@@ -436,6 +459,7 @@
       line-height: 1.6;
       color: #cbd5e1;
     }
+
 
     /* Persistent Talkers Footer */
     .speakers-footer {
@@ -517,236 +541,29 @@
     }
 
     @media (max-width: 960px) {
-      .slide-title { font-size: 2.2rem; }
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 14px; }
-      .deck-viewport { padding: 16px; }
-      .speakers-footer { display: none; }
-    }
+      .slide-title {
+        font-size: 2.2rem;
+      }
 
-    /* =========================================
-       PASSWORD GATE & LOCK SCREEN
-       ========================================= */
-    body:not(.authenticated) .deck-viewport,
-    body:not(.authenticated) .controls,
-    body:not(.authenticated) .speakers-footer,
-    body:not(.authenticated) .progress-container {
-      filter: blur(24px);
-      opacity: 0.15;
-      pointer-events: none;
-      user-select: none;
-      transition: filter 0.4s ease, opacity 0.4s ease;
-    }
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
 
-    .lock-screen {
-      position: fixed;
-      inset: 0;
-      background: rgba(9, 9, 11, 0.96);
-      background-image: radial-gradient(#27272a 1px, transparent 1px);
-      background-size: 24px 24px;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-      backdrop-filter: blur(16px);
-    }
+      .deck-viewport {
+        padding: 16px;
+      }
 
-    .lock-screen.unlocked {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .lock-card {
-      background: #12141a;
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 38px 32px;
-      max-width: 440px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes shakeError {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
-    }
-
-    .lock-card.shake {
-      animation: shakeError 0.4s ease;
-    }
-
-    .lock-icon-wrap {
-      width: 52px;
-      height: 52px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-
-    .lock-input-group {
-      position: relative;
-      width: 100%;
-      margin-bottom: 12px;
-    }
-
-    .lock-input {
-      width: 100%;
-      background: #181a22;
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 12px 44px 12px 16px;
-      font-size: 1rem;
-      color: #ffffff;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s ease;
-      direction: ltr;
-      text-align: center;
-      letter-spacing: 0.08em;
-    }
-
-    .lock-input:focus {
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
-      background: #1c1e28;
-    }
-
-    .toggle-pwd-btn {
-      position: absolute;
-      top: 50%;
-      right: 12px;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-      transition: color 0.15s ease;
-    }
-
-    .toggle-pwd-btn:hover {
-      color: #ffffff;
-    }
-
-    .lock-error-msg {
-      color: #fb7185;
-      font-size: 0.85rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: rgba(251, 113, 133, 0.08);
-      border: 1px solid rgba(251, 113, 133, 0.2);
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
-
-    .lock-submit-btn {
-      width: 100%;
-      background: #38bdf8;
-      color: #09090b;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .lock-submit-btn:hover {
-      background: #7dd3fc;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+      .speakers-footer {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
-
-  <!-- Presentation Password Gate -->
-  <div class="lock-screen" id="lockScreen">
-    <div class="lock-card">
-      <div class="lock-icon-wrap">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-      </div>
-
-      <span class="badge badge-blue" style="margin-bottom: 12px; align-self: center;">محمي بكلمة مرور // Protected</span>
-      
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">
-        ابنِ هويتك الرقمية
-      </h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;">
-        هذا العرض التقديمي مخصص للحضور فقط.<br>يرجى إدخال كلمة المرور للمتابعة.
-      </p>
-
-      <form id="lockForm" onsubmit="handleUnlock(event)" style="width: 100%;">
-        <div class="lock-input-group">
-          <input 
-            type="password" 
-            id="passwordInput" 
-            class="lock-input" 
-            placeholder="أدخل كلمة المرور..." 
-            autocomplete="current-password"
-            required
-            autofocus
-          />
-          <button type="button" class="toggle-pwd-btn" onclick="togglePasswordVisibility()" title="إظهار / إخفاء">
-            <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-
-        <div id="lockError" class="lock-error-msg" style="display: none;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span>كلمة المرور غير صحيحة، حاول مجدداً.</span>
-        </div>
-
-        <button type="submit" class="lock-submit-btn" id="unlockBtn">
-          <span>دخول العرض التقديمي</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button>
-
-        <div style="margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
-          <input type="checkbox" id="rememberDevice" style="accent-color: #38bdf8; cursor: pointer;">
-          <label for="rememberDevice" style="cursor: pointer; user-select: none;">تذكر هذا الجهاز (عدم طلبها مرة أخرى)</label>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <!-- Top Progress Bar -->
   <div class="progress-container">
@@ -757,34 +574,54 @@
   <div class="deck-viewport" id="deck">
 
     <!-- Slide 1: Cover -->
-    <div class="slide active hero-slide" data-notes="ابدأ بترحيب دافئ وواثق. اسأل الحضور هذا السؤال الصادم: كم شخص هنا حس إنه بيشتغل ويتعلم من سنين، بس الفرص ما بتوصل لعنده؟ المشكلة مش نقص مهارة... المشكلة إنك مهندس مجهول في سوق مزدحم. هذه الجلسة ستغير قواعد اللعبة تماماً.">
-      
+    <div class="slide active hero-slide"
+      data-notes="ابدأ بترحيب دافئ وواثق. اسأل الحضور هذا السؤال الصادم: كم شخص هنا حس إنه بيشتغل ويتعلم من سنين، بس الفرص ما بتوصل لعنده؟ المشكلة مش نقص مهارة... المشكلة إنك مهندس مجهول في سوق مزدحم. هذه الجلسة ستغير قواعد اللعبة تماماً.">
+
       <div style="max-width: 920px; margin: 0 auto; text-align: center;">
-        <p style="font-family: var(--font-code); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 24px;">
+        <p
+          style="font-family: var(--font-code); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 24px;">
           Personal Brand × LinkedIn × Dev Career
         </p>
 
-        <h1 class="slide-title" style="font-size: 5.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.035em;">
+        <h1 class="slide-title"
+          style="font-size: 5.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.035em;">
           ابنِ هويتك الرقمية
         </h1>
 
-        <h2 style="font-size: 2.2rem; font-weight: 600; color: var(--text-secondary); line-height: 1.5; margin-bottom: 30px;">
+        <h2
+          style="font-size: 2.2rem; font-weight: 600; color: var(--text-secondary); line-height: 1.5; margin-bottom: 30px;">
           كيف تخلي الناس تعرفك وتطلبك بالاسم... قبل ما تقابلهم؟
         </h2>
 
         <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); max-width: 740px; margin: 0 auto;">
-          الفرق بين مبرمج شاطر بس بالظل، ومهندس عادي العروض بتنزل عليه مثل المطر، مش شطارة كود بس... السر كله بالـ Personal Brand، وضوح التموضع، وبرهان العمل الحقيقي (Proof of Work).
+          الفرق بين مبرمج شاطر بس بالظل، ومهندس عادي العروض بتنزل عليه مثل المطر، مش شطارة كود بس... السر كله بالـ
+          Personal Brand، وضوح التموضع، وبرهان العمل الحقيقي (Proof of Work).
         </p>
 
-        <div style="margin-top: 40px; display: inline-flex; align-items: center; gap: 14px; direction: ltr; font-family: var(--font-code); font-size: 0.95rem; background: #12141a; border: 1px solid var(--border-subtle); padding: 9px 24px; border-radius: 8px;">
-          <span style="color: #60a5fa; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Talkers //</span>
-          <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer" class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Bayan Reqib">
-            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+        <div
+          style="margin-top: 40px; display: inline-flex; align-items: center; gap: 14px; direction: ltr; font-family: var(--font-code); font-size: 0.95rem; background: #12141a; border: 1px solid var(--border-subtle); padding: 9px 24px; border-radius: 8px;">
+          <span
+            style="color: #60a5fa; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Talkers
+            //</span>
+          <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer"
+            class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Bayan Reqib">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+              <rect width="24" height="24" rx="4" fill="#0a66c2" />
+              <path
+                d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+                fill="#ffffff" />
+            </svg>
             Eng. Bayan Reqib
           </a>
           <span style="color: var(--text-muted);">&amp;</span>
-          <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Izzedeen Alfarra">
-            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+          <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link"
+            style="color: #ffffff; font-weight: 600;" title="LinkedIn: Izzedeen Ahmed Alfarra">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+              <rect width="24" height="24" rx="4" fill="#0a66c2" />
+              <path
+                d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+                fill="#ffffff" />
+            </svg>
             Eng. Izzedeen Alfarra
           </a>
         </div>
@@ -792,29 +629,197 @@
 
     </div>
 
+    <!-- Slide 2: Speaker Intro -->
+    <div class="slide"
+      data-notes="عرف بنفسك بأسلوب عفوي ومباشر: مرحباً بالجميع! أنا عز الدين أحمد الفرا، بشتغل Software Engineer وضابط ربط أنظمة صحية في Kayan بدبي (عن بُعد). وقبل أي لقب رسمي، أنا لسا طالب هندسة حاسوب في جامعة الأزهر بغزة، باقي لي 17 ساعة دراسية لو ما شلت مواد وبصير أحط قبل اسمي Eng. كمان بنسوي بودكاست أنا وبيان الرقب اسمه Two Talkers بنحكي فيه بأمور تقنية مختلفة، وقدّمت عدة ورشات سابقة عن بناء الهوية الرقمية، وبشرح لطلاب الجامعات على يوتيوب ودرّست أكثر من 10 طلاب من سلطنة عُمان، وعندي +5,500 متابع على لينكدإن ويوتيوب، وسفير مع TAP (أجدع ناس بالعالم) في برنامج الـ Job Hunting Program. واليوم جاي أشارككم الخلاصة العملية اللي بتطلع أي مبرمج من الظل للأضواء والفرص الحقيقية.">
+      <span class="badge badge-blue">المتحدث</span>
+      <h2 class="slide-title" style="margin-bottom: 22px;">عز الدين أحمد الفرا <span
+          style="font-size: 1.7rem; font-family: var(--font-code); color: var(--accent-blue); font-weight: 500;">/
+          z4dev</span></h2>
+
+      <div class="grid-2" style="align-items: stretch; gap: 20px;">
+
+        <!-- Profile Column -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="glass-card" style="display: flex; gap: 18px; align-items: center; padding: 20px;">
+            <img src="about_izzedeen/izzedeen_pfp.jpg" alt="Izzedeen Ahmed Alfarra"
+              style="width: 100px; height: 100px; border-radius: 10px; object-fit: cover; border: 1px solid var(--border-subtle); flex-shrink: 0;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 4px;">Software Engineer &amp; Integration
+                Officer</h3>
+              <p style="font-family: var(--font-code); color: #60a5fa; font-size: 0.85rem; margin-bottom: 6px;">Kayan
+                Healthcare · Dubai (Remote)</p>
+              <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">
+                جامعة الأزهر — غزة · حالياً في القاهرة<br>
+                <span style="color: #fbbf24; font-size: 0.8rem;">(باقي 17 ساعة دراسية لو ما شلت مواد... وبصير أحط قبل
+                  اسمي Eng)</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 18px 20px;">
+            <span
+              style="font-family: var(--font-code); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Workshops
+              &amp; Community</span>
+
+            <div
+              style="margin-top: 10px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+              <p>• بنسوي بودكاست أنا وبيان الرقب (Two Talkers) بنحكي فيه بأمور تقنية مختلفة.</p>
+              <p>• قدّمت أكثر من ورشة عمل متخصصة بموضوع بناء الهوية الرقمية والبراند المهني للمطورين.</p>
+              <p>• بشرح لطلاب الجامعات على يوتيوب، ودرّست وتابعت أكثر من 10 طلاب جامعيين من سلطنة عُمان.</p>
+              <p>• +5,500 متابع على لينكدإن ويوتيوب، وسفير مع TAP (أجدع ناس بالعالم) في برنامج الـ Job Hunting Program.
+              </p>
+            </div>
+
+            <div
+              style="display: flex; gap: 8px; justify-content: flex-start; direction: ltr; font-family: var(--font-code); font-size: 0.78rem; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
+              <a href="https://linkedin.com/in/z4dev" target="_blank" rel="noopener noreferrer" class="talker-link"
+                style="color: #93c5fd; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.25); padding: 4px 10px; border-radius: 6px;">linkedin.com/in/z4dev</a>
+              <a href="https://youtube.com/@EzzAldeenDev" target="_blank" rel="noopener noreferrer" class="talker-link"
+                style="color: #f87171; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.25); padding: 4px 10px; border-radius: 6px;">youtube.com/@EzzAldeenDev</a>
+              <a href="https://github.com/z4dev" target="_blank" rel="noopener noreferrer" class="talker-link"
+                style="color: var(--text-secondary); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); padding: 4px 10px; border-radius: 6px;">github.com/z4dev</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience & Context Column -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="glass-card" style="padding: 20px;">
+            <span
+              style="font-family: var(--font-code); font-size: 0.72rem; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.06em;">Current
+              Work</span>
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin: 6px 0 10px 0;">أنظمة الباك إند والربط الصحي في Kayan
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+              مسؤول عن بناء وتشغيل الـ middleware switch اللي بنقل مطالبات التأمين الصحي (e-claims) بمعايير FHIR و HL7
+              بين المستشفيات وجهات الدفع في منطقة الشرق الأوسط، وتطوير خوارزميات deduplication لمنع ازدواجية المطالبات.
+            </p>
+            <div
+              style="display: flex; gap: 6px; flex-wrap: wrap; font-family: var(--font-code); font-size: 0.72rem; color: var(--text-muted); direction: ltr;">
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">Node.js</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">NestJS</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">TypeScript</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">HL7
+                / FHIR</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">PostgreSQL</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">Docker</span>
+              <span
+                style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 2px 7px; border-radius: 4px;">AWS</span>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 20px; border-right: 4px solid var(--accent-blue);">
+            <span
+              style="font-family: var(--font-code); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.06em;">Context
+              &amp; Goal</span>
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin: 6px 0 10px 0;">ليش بنحكي عن الهوية الرقمية اليوم؟
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+              من واقع الورشات اللي قدّمتها وتعاملي المباشر مع الطلاب والمهندسين، شفت مبرمجين شاطرين جداً بس ما حدا سامع
+              فيهم لأنهم شغالين بالظل. كل خطوة رح نطرحها اليوم هي نفس التجربة اللي طبقتها وعملت فرق حقيقي بنقلي لسوق
+              العمل قبل التخرج.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+        <!-- Slide 3: Workshop Rules & Mindset -->
+    <div class="slide" data-notes="نبّه الحضور إن الجلسة ورشة عمل تفاعلية تطبيقية مش محاضرة جامعية، واطلب منهم يفتحوا حساباتهم على لينكدإن وجيت هب على أجهزتهم أو هواتفهم عشان يراجعوا ورا كل خطوة بنحكيها بشكل فوري، ويسجلوا المهام اللي رح يعدلوها اليوم.">
+      <span class="badge badge-emerald">قواعد الاستفادة</span>
+      <h2 class="slide-title">كيف تحقق أقصى استفادة من هذه الورشة؟</h2>
+      <p class="slide-subtitle">الفرق بين ورشة بتسمعها وبتنساها، وورشة بتغيّر مسارك المهني... هو كيف رح تتعامل مع هالساعة القادمة.</p>
+
+      <div class="grid-4" style="margin-top: 10px;">
+        <div class="glass-card">
+          <div class="stat-number" style="color: #60a5fa;">01</div>
+          <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 6px;">افتح بروفايلك الآن</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55;">
+            افتح LinkedIn و GitHub بجانبك، وقيّم حساباتك مع كل شريحة بنشرحها بدل الاكتفاء بالاستماع السلبي.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="stat-number" style="color: #34d399;">02</div>
+          <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 6px;">سجّل الـ Action Items</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55;">
+            أي خلل بتلاحظه في بروفايلك أو فكرة جديدة بتخطر لك، اكتبها كـ Task للتعديل اليوم مش بعد أسبوع.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="stat-number" style="color: #c084fc;">03</div>
+          <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 6px;">اسأل وناقش</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55;">
+            الورشة تفاعلية؛ إذا عندك حالة خاصة أو تساؤل عن تخصصك وظروفك، اطرحه فوراً للنقاش لنفيد الجميع.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="stat-number" style="color: #fbbf24;">04</div>
+          <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 6px;">اخرج بقرار واحد</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55;">
+            قيمة الورشة مش بكمية المعلومات، بل بقرار عملي حقيقي تبدأ بتنفيذه الليلة: تعديل، مشروع، أو بوست.
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-box" style="border-right-color: var(--accent-emerald); font-size: 1.15rem; margin-top: 24px; padding: 16px 24px;">
+        "المعلومة بدون تطبيق بتتحول لحمل ذهني... الهدف اليوم إنك تطلع بخطة عمل قابلة للتنفيذ المباشر."
+      </div>
+    </div>
+
     <!-- Slide 2 -->
-    <div class="slide" data-notes="وقفة قوية. اسألهم يسكروا عيونهم ويفكروا: لو الآن مدير تقني أو Recruiter كتب اسمك بجوجل، شو أول انطباع؟">
+    <div class="slide"
+      data-notes="وقفة قوية. اسألهم يسكروا عيونهم ويفكروا: لو الآن مدير تقني أو Recruiter كتب اسمك بجوجل، شو أول انطباع؟">
       <span class="badge badge-rose">01 / صدمة البداية</span>
       <h2 class="slide-title">لو بحثت عن اسمك الآن على Google...</h2>
       <p class="slide-subtitle">شو رح يعرف عنك شخص ما بعرفك خلال 30 ثانية؟</p>
       <div class="grid-4" style="margin-top: 10px;">
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg></div>
           <h3 style="font-size: 1.25rem;">LinkedIn؟</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">بروفايل احترافي؟</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg></div>
           <h3 style="font-size: 1.25rem;">GitHub؟</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">كود ومشاريع حية؟</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg></div>
           <h3 style="font-size: 1.25rem;">Portfolio؟</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">معرض أعمال مميز؟</p>
         </div>
-        <div class="glass-card" style="text-align: center; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.06);">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg></div>
+        <div class="glass-card"
+          style="text-align: center; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.06);">
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <line x1="12" x2="12.01" y1="17" y2="17" />
+            </svg></div>
           <h3 style="font-size: 1.25rem; color: #fda4af;">ولا... ولا شيء؟</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">فراغ تام في الفضاء الرقمي</p>
         </div>
@@ -822,23 +827,32 @@
     </div>
 
     <!-- Slide 3 -->
-    <div class="slide" data-notes="النقطة الجوهرية: عدم وجودك الرقمي لا يعني أنك مجهول، يعني أن غيرك هو من يرسم انطباعك، أو أنك خارج المنافسة.">
+    <div class="slide"
+      data-notes="النقطة الجوهرية: عدم وجودك الرقمي لا يعني أنك مجهول، يعني أن غيرك هو من يرسم انطباعك، أو أنك خارج المنافسة.">
       <span class="badge badge-purple">02 / الواقع الرقمي</span>
       <h2 class="slide-title">الإنترنت عنده صورة عنك...<br><span>حتى لو أنت ما بنيتها بنفسك.</span></h2>
       <div class="quote-box" style="border-right-color: var(--purple);">
-        صورتك، اسمك، حساباتك، كودك على GitHub، المحتوى اللي بتنشره، والأشياء اللي الناس بتحكيها عنك... كلها تصنع المعادلة.
+        صورتك، اسمك، حساباتك، كودك على GitHub، المحتوى اللي بتنشره، والأشياء اللي الناس بتحكيها عنك... كلها تصنع
+        المعادلة.
       </div>
-      <div class="glass-card" style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+      <div class="glass-card"
+        style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <span style="font-size: 0.9rem; color: var(--text-muted);">النتيجة الإجمالية لكل تفاعلاتك:</span>
           <h3 style="font-size: 1.8rem; color: #c084fc; margin-top: 4px;">هويتك الرقمية (Digital Identity)</h3>
         </div>
-        <div class="icon-wrap" style="color: #71717a;"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+        <div class="icon-wrap" style="color: #71717a;"><svg class="icon" width="22" height="22" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <path d="M2 12h20" />
+          </svg></div>
       </div>
     </div>
 
     <!-- Slide 4 -->
-    <div class="slide" data-notes="وضح الفرق بين المنظومة (Digital Identity) والأداة (LinkedIn). لينكد إن هو المدخل الأكبر، لكن المنظومة أوسع.">
+    <div class="slide"
+      data-notes="وضح الفرق بين المنظومة (Digital Identity) والأداة (LinkedIn). لينكد إن هو المدخل الأكبر، لكن المنظومة أوسع.">
       <span class="badge badge-blue">03 / تصحيح مفهوم</span>
       <h2 class="slide-title">LinkedIn مش هويتك الرقمية...<br><span>هو مجرد الواجهة الرئيسية.</span></h2>
       <div class="grid-2">
@@ -851,7 +865,8 @@
             <li><strong>Google Footprint:</strong></strong> نتائج البحث وظهورك المهني</li>
           </ul>
         </div>
-        <div class="glass-card" style="border-color: rgba(59, 130, 246, 0.4); display: flex; flex-direction: column; justify-content: center;">
+        <div class="glass-card"
+          style="border-color: rgba(59, 130, 246, 0.4); display: flex; flex-direction: column; justify-content: center;">
           <h3 style="color: #60a5fa; font-size: 1.4rem; margin-bottom: 12px;">لماذا نركز اليوم على LinkedIn؟</h3>
           <p style="color: var(--text-sub); line-height: 1.7; font-size: 1.1rem;">
             لأنه المنصة رقم 1 عالمياً التي يتواجد عليها صناع القرار، قادة الفرق، والمستثمرون للبحث عن كفاءات استثنائية.
@@ -861,7 +876,8 @@
     </div>
 
     <!-- Slide 5 -->
-    <div class="slide" data-notes="كثير مطورين أول ما يقرر يهتم بلينكد إن يروح يغير صورته أو يكتب bio عشوائي. هذا خطأ. التموضع هو الأساس.">
+    <div class="slide"
+      data-notes="كثير مطورين أول ما يقرر يهتم بلينكد إن يروح يغير صورته أو يكتب bio عشوائي. هذا خطأ. التموضع هو الأساس.">
       <span class="badge badge-amber">04 / البداية الاستراتيجية</span>
       <h2 class="slide-title">لا تبدأ بالصورة والـ Bio.</h2>
       <p class="slide-subtitle">ابدأ بالسؤال الذهبي الذي يسبق أي تعديل:</p>
@@ -870,45 +886,67 @@
       </div>
       <div class="grid-2" style="margin-top: 14px;">
         <div class="diff-bad">
-          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>مش:</strong> "أنا شو بعرف؟" (قائمة تكنولوجيات مبعثرة لا تعني شيئاً)
+          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg> <strong>مش:</strong> "أنا شو بعرف؟" (قائمة تكنولوجيات مبعثرة لا تعني شيئاً)
         </div>
         <div class="diff-good">
-          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>بل:</strong> "شو بدي أكون معروف فيه؟" (تخصص وقيمة واضحة لا تُنسى)
+          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <strong>بل:</strong> "شو بدي أكون معروف فيه؟" (تخصص وقيمة واضحة لا تُنسى)
         </div>
       </div>
     </div>
 
     <!-- Slide 6 -->
-    <div class="slide" data-notes="ركز على مفهوم 'شوربة التقنيات'. لما تكتب كل شيء، الناس تظنك لا تجيد أي شيء بعمق. الوضوح قوة.">
+    <div class="slide"
+      data-notes="ركز على مفهوم 'شوربة التقنيات'. لما تكتب كل شيء، الناس تظنك لا تجيد أي شيء بعمق. الوضوح قوة.">
       <span class="badge badge-purple">05 / التموضع (Positioning)</span>
       <h2 class="slide-title">لا تحاول تكون كل شيء للجميع.</h2>
       <div class="diff-bad" style="margin-bottom: 20px;">
-        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>شوربة التقنيات:</strong><br>
+        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg> <strong>شوربة التقنيات:</strong><br>
         <code>Software Engineer | AI | Cybersecurity | Blockchain | Cloud | Marketing | Designer</code>
       </div>
       <div class="diff-good" style="margin-bottom: 24px;">
-        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>تخصص حاد وواضح:</strong><br>
+        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg> <strong>تخصص حاد وواضح:</strong><br>
         <strong>Backend Engineer building AI-powered products.</strong><br>
-        <span style="font-size: 0.95rem; color: #a7f3d0;">أو: Software Engineer sharing what I learn while building scalable products.</span>
+        <span style="font-size: 0.95rem; color: #a7f3d0;">أو: Software Engineer sharing what I learn while building
+          scalable products.</span>
       </div>
       <h3 style="text-align: center; font-size: 2.2rem; font-weight: 900; color: #38bdf8;">Clarity > Everything</h3>
     </div>
 
     <!-- Slide 7 -->
-    <div class="slide" data-notes="وقف هنا دقيقة كاملة. اطلب من كل شخص يفتح نوتس جواله ويكتب هذه الجمل الأربعة. هذا تمرين عملي فوري.">
+    <div class="slide"
+      data-notes="وقف هنا دقيقة كاملة. اطلب من كل شخص يفتح نوتس جواله ويكتب هذه الجمل الأربعة. هذا تمرين عملي فوري.">
       <span class="badge badge-cyan">06 / ورشة عمل دقيقة واحدة</span>
       <h2 class="slide-title">تمرين سريع: أكمل معادلة هويتك</h2>
       <div class="glass-card" style="font-size: 1.5rem; line-height: 2.2; max-width: 850px;">
-        <div>أنا <span style="color: var(--cyan); border-bottom: 2px dashed var(--cyan); padding: 0 16px;">[ تخصصك الدقيق ]</span></div>
-        <div>بساعد <span style="color: var(--purple); border-bottom: 2px dashed var(--purple); padding: 0 16px;">[ الجمهور أو الشركة ]</span></div>
-        <div>على <span style="color: var(--emerald); border-bottom: 2px dashed var(--emerald); padding: 0 16px;">[ حل المشكلة / القيمة ]</span></div>
-        <div>من خلال <span style="color: var(--amber); border-bottom: 2px dashed var(--amber); padding: 0 16px;">[ أدواتك وطريقتك ]</span></div>
+        <div>أنا <span style="color: var(--cyan); border-bottom: 2px dashed var(--cyan); padding: 0 16px;">[ تخصصك
+            الدقيق ]</span></div>
+        <div>بساعد <span style="color: var(--purple); border-bottom: 2px dashed var(--purple); padding: 0 16px;">[
+            الجمهور أو الشركة ]</span></div>
+        <div>على <span style="color: var(--emerald); border-bottom: 2px dashed var(--emerald); padding: 0 16px;">[ حل
+            المشكلة / القيمة ]</span></div>
+        <div>من خلال <span style="color: var(--amber); border-bottom: 2px dashed var(--amber); padding: 0 16px;">[
+            أدواتك وطريقتك ]</span></div>
       </div>
       <p style="margin-top: 24px; color: var(--text-sub); font-size: 1.1rem;">⏱️ خذ دقيقة الآن واكتبها في ملاحظاتك.</p>
     </div>
 
     <!-- Slide 8 -->
-    <div class="slide" data-notes="اشرح سيكولوجية زائر الصفحة. الزائر ما عنده وقت يقرأ السيرة الذاتية كاملة، القرار بيتاخد خلال 5 ثواني.">
+    <div class="slide"
+      data-notes="اشرح سيكولوجية زائر الصفحة. الزائر ما عنده وقت يقرأ السيرة الذاتية كاملة، القرار بيتاخد خلال 5 ثواني.">
       <span class="badge badge-emerald">07 / تشريح البروفايل</span>
       <h2 class="slide-title">أول 5 ثواني بتحدد كل شيء.</h2>
       <p class="slide-subtitle">عندما يفتح زائر بروفايلك، عينه بتمر بالمسار التالي فوراً:</p>
@@ -934,31 +972,50 @@
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">القصة والأثر (2.0 ثانية)</p>
         </div>
       </div>
-      <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.95rem;">*كل هذا قبل أن ينزل لقراءة قائمة الخبرات أو الشهادات!*</p>
+      <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.95rem;">*كل هذا قبل أن ينزل لقراءة قائمة
+        الخبرات أو الشهادات!*</p>
     </div>
 
     <!-- Slide 9 -->
-    <div class="slide" data-notes="الصورة مش لازم تكون ببدلة رسمية لو أنت ديفلوبر، لكن لازم تكون واضحة ومبتسمة ومرتبة. الهدف هو سهولة التذكر.">
+    <div class="slide"
+      data-notes="الصورة مش لازم تكون ببدلة رسمية لو أنت ديفلوبر، لكن لازم تكون واضحة ومبتسمة ومرتبة. الهدف هو سهولة التذكر.">
       <span class="badge badge-blue">08 / الصورة الشخصية</span>
       <h2 class="slide-title">الصورة بتحكي عنك قبل ما تحكي أنت.</h2>
       <div class="grid-4" style="margin-bottom: 24px;">
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg></div>
           <h3>Clear</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">إضاءة نقية وزاوية مباشرة</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg></div>
           <h3>Professional</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">مظهر مرتب ومناسب لمجالك</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg></div>
           <h3>Recognizable</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">ملامحك واضحة بدون فلاتر</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg></div>
           <h3>High Quality</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">دقة عالية بدون بكسلة</p>
         </div>
@@ -969,7 +1026,8 @@
     </div>
 
     <!-- Slide 10 -->
-    <div class="slide" data-notes="البانر يمثل 30% من الشاشة على الموبايل والديسكتوب. تركه فارغاً أو بصورة طبيعة عشوائية ضياع لفرصة تسويقية مهنية.">
+    <div class="slide"
+      data-notes="البانر يمثل 30% من الشاشة على الموبايل والديسكتوب. تركه فارغاً أو بصورة طبيعة عشوائية ضياع لفرصة تسويقية مهنية.">
       <span class="badge badge-purple">09 / البانر (Banner)</span>
       <h2 class="slide-title">لا تضيّع المساحة... الـ Banner لوحة إعلانية.</h2>
       <p class="slide-subtitle">الـ Banner مش مجرد ديكور أو خلفية عشوائية. استخدمه لتوضيح:</p>
@@ -995,11 +1053,16 @@
     </div>
 
     <!-- Slide 11 -->
-    <div class="slide" data-notes="كثير ناس بيكتبوا 'Software Engineer at Google' أو 'at Startup X'. هذا يروج للشركة، لكن لا يعرف بالمهندس.">
+    <div class="slide"
+      data-notes="كثير ناس بيكتبوا 'Software Engineer at Google' أو 'at Startup X'. هذا يروج للشركة، لكن لا يعرف بالمهندس.">
       <span class="badge badge-rose">10 / فخ الـ Headline</span>
       <h2 class="slide-title">أسوأ Headline ممكن تكتبه:</h2>
       <div class="diff-bad" style="font-size: 1.5rem; text-align: center; margin: 24px 0;">
-        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Software Engineer at Company X
+        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg> Software Engineer at Company X
       </div>
       <div class="glass-card">
         <h3 style="color: #f87171; margin-bottom: 12px;">ليش هذا الـ Headline ضعيف؟</h3>
@@ -1018,7 +1081,10 @@
         Identity + Expertise + Direction
       </div>
       <div class="diff-good" style="margin: 20px 0; font-size: 1.3rem;">
-        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>Software Engineer | Backend & AI | Building Scalable Digital Products</strong>
+        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg> <strong>Software Engineer | Backend & AI | Building Scalable Digital Products</strong>
       </div>
       <p style="color: var(--text-muted); font-size: 1.05rem;">
         💡 مش ضروري تنسخ المثال حرفياً... خذ الفكرة والمعادلة وابنِ هويتك أنت.
@@ -1026,14 +1092,20 @@
     </div>
 
     <!-- Slide 13 -->
-    <div class="slide" data-notes="الـ About مش إعادة نسخ لفقرات السيرة الذاتية. هو قصة إنسانية تقنية تجعل القارئ يرغب في التحدث معك.">
+    <div class="slide"
+      data-notes="الـ About مش إعادة نسخ لفقرات السيرة الذاتية. هو قصة إنسانية تقنية تجعل القارئ يرغب في التحدث معك.">
       <span class="badge badge-cyan">12 / نبذة عنك (About)</span>
       <h2 class="slide-title">الـ About مش CV ثاني منسوخ.</h2>
       <div class="diff-bad" style="margin-bottom: 20px;">
-        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> لا تبدأ بـ: "I am a passionate software engineer with 3 years of experience..."
+        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg> لا تبدأ بـ: "I am a passionate software engineer with 3 years of experience..."
       </div>
       <div class="glass-card">
-        <h4 style="color: var(--cyan); margin-bottom: 12px; font-size: 1.2rem;">أجب عن هذه الأسئلة الـ 5 بأسلوب قصصي:</h4>
+        <h4 style="color: var(--cyan); margin-bottom: 12px; font-size: 1.2rem;">أجب عن هذه الأسئلة الـ 5 بأسلوب قصصي:
+        </h4>
         <div class="grid-2" style="font-size: 1.05rem; gap: 14px;">
           <div>1. مين أنت وما هو شغفك التقني؟</div>
           <div>2. شو المشاريع اللي بنيتها؟</div>
@@ -1045,17 +1117,26 @@
     </div>
 
     <!-- Slide 14 -->
-    <div class="slide" data-notes="الناس عاطفيين بطبعهم حتى في مجال الهندسة. القصة تبقى في الذاكرة، بينما قائمة الكلمات المفتاحية تُنسى في ثوانٍ.">
+    <div class="slide"
+      data-notes="الناس عاطفيين بطبعهم حتى في مجال الهندسة. القصة تبقى في الذاكرة، بينما قائمة الكلمات المفتاحية تُنسى في ثوانٍ.">
       <span class="badge badge-purple">13 / سرد القصة</span>
       <h2 class="slide-title">القصة تتفوق على قائمة الكلمات المفتاحية</h2>
       <div class="grid-2" style="margin-bottom: 20px;">
         <div class="diff-bad">
-          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>قائمة جافة:</strong><br>
+          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg> <strong>قائمة جافة:</strong><br>
           <code>Node.js | React | MongoDB | Docker | AWS</code>
         </div>
         <div class="diff-good">
-          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>سياق قصصي جذاب:</strong><br>
-          "بدأت بالـ JavaScript، ومنها تعمقت بعالم الـ Backend وبناء APIs حقيقية، ومع التطور بدأت هندسة أنظمة AI-powered."
+          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <strong>سياق قصصي جذاب:</strong><br>
+          "بدأت بالـ JavaScript، ومنها تعمقت بعالم الـ Backend وبناء APIs حقيقية، ومع التطور بدأت هندسة أنظمة
+          AI-powered."
         </div>
       </div>
       <div class="quote-box" style="border-right-color: #a855f7; text-align: center; font-size: 1.7rem;">
@@ -1069,17 +1150,39 @@
       <h2 class="slide-title">لا تكتب Job Description... اكتب أثرك الحقيقي.</h2>
       <div class="grid-2">
         <div class="diff-bad" style="display: flex; flex-direction: column; gap: 14px;">
-          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Developed APIs using Node.js.</div>
-          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Responsible for database maintenance.</div>
-          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Fixed deployment bugs.</div>
+          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg> Developed APIs using Node.js.</div>
+          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg> Responsible for database maintenance.</div>
+          <div><svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg> Fixed deployment bugs.</div>
         </div>
         <div class="diff-good" style="display: flex; flex-direction: column; gap: 14px;">
-          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Built backend services serving 100K+ daily active users.</div>
-          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reduced API latency by 45% through indexing.</div>
-          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Automated CI/CD reducing deploy time from 2h to 10m.</div>
+          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> Built backend services serving 100K+ daily active users.</div>
+          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> Reduced API latency by 45% through indexing.</div>
+          <div><svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg> Automated CI/CD reducing deploy time from 2h to 10m.</div>
         </div>
       </div>
-      <h3 style="text-align: center; color: #fbbf24; font-size: 1.8rem; margin-top: 24px;">Show Impact, Don't List Chores.</h3>
+      <h3 style="text-align: center; color: #fbbf24; font-size: 1.8rem; margin-top: 24px;">Show Impact, Don't List
+        Chores.</h3>
     </div>
 
     <!-- Slide 16 -->
@@ -1111,7 +1214,8 @@
     </div>
 
     <!-- Slide 17 -->
-    <div class="slide" data-notes="نقطة التحول في السيمينار: جهزنا البروفايل، لكن البروفايل لوحده لا يكفي إذا ما في زوار. المحتوى هو المحرك.">
+    <div class="slide"
+      data-notes="نقطة التحول في السيمينار: جهزنا البروفايل، لكن البروفايل لوحده لا يكفي إذا ما في زوار. المحتوى هو المحرك.">
       <span class="badge badge-rose">16 / نقطة التحول</span>
       <h2 class="slide-title">وهنا بيبدأ الـ Personal Brand الحقيقي.</h2>
       <div class="grid-2" style="margin: 20px 0;">
@@ -1134,48 +1238,93 @@
     </div>
 
     <!-- Slide 18 -->
-    <div class="slide" data-notes="فك عقدة 'ما عندي شيء أكتب عنه'. أنت كمهندس بتواجه 10 تحديات أسبوعياً. كل تحدي هو منشور محتمل.">
+    <div class="slide"
+      data-notes="فك عقدة 'ما عندي شيء أكتب عنه'. أنت كمهندس بتواجه 10 تحديات أسبوعياً. كل تحدي هو منشور محتمل.">
       <span class="badge badge-amber">17 / كسر عائق المحتوى</span>
       <h2 class="slide-title">ما عندك شيء تنشره؟ بالعكس... عندك منجم!</h2>
       <p class="slide-subtitle">أنت بتتعلم وتبني وتواجه تحديات كل يوم:</p>
       <div class="grid-3" style="font-size: 1.15rem;">
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="14" x="8" y="6" rx="4"/><path d="m19 7-3 2"/><path d="m5 7 3 2"/><path d="m19 19-3-2"/><path d="m5 19 3-2"/><path d="M20 13h-4"/><path d="M4 13h4"/><path d="m10 4 1 2"/><path d="m14 4-1 2"/></svg> <strong>Bug</strong> غريب واجهته في كودك</div>
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12.01" y1="17" y2="17"/><line x1="12" x2="12" y1="9" y2="13"/></svg> <strong>Failure</strong> أو خطأ معماري وقعت فيه</div>
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> <strong>Lesson</strong> تقنية اختصرت عليك وقت</div>
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> <strong>New Project</strong> شغال عليه حالياً</div>
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> <strong>Achievement</strong> إنجاز تخطيته</div>
-        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <strong>Opinion</strong> رأي هندسي مبني على تجربة</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="8" height="14" x="8" y="6" rx="4" />
+            <path d="m19 7-3 2" />
+            <path d="m5 7 3 2" />
+            <path d="m19 19-3-2" />
+            <path d="m5 19 3-2" />
+            <path d="M20 13h-4" />
+            <path d="M4 13h4" />
+            <path d="m10 4 1 2" />
+            <path d="m14 4-1 2" />
+          </svg> <strong>Bug</strong> غريب واجهته في كودك</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+            <line x1="12" x2="12.01" y1="17" y2="17" />
+            <line x1="12" x2="12" y1="9" y2="13" />
+          </svg> <strong>Failure</strong> أو خطأ معماري وقعت فيه</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+            <path d="M9 18h6" />
+            <path d="M10 22h4" />
+          </svg> <strong>Lesson</strong> تقنية اختصرت عليك وقت</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          </svg> <strong>New Project</strong> شغال عليه حالياً</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg> <strong>Achievement</strong> إنجاز تخطيته</div>
+        <div class="glass-card"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg> <strong>Opinion</strong> رأي هندسي مبني على تجربة</div>
       </div>
     </div>
 
     <!-- Slide 19 -->
-    <div class="slide" data-notes="مثال عملي جداً يوضح كيف تحول Bug في البرودكشن إلى منشور تقني جذاب ينال مئات التفاعلات.">
+    <div class="slide"
+      data-notes="مثال عملي جداً يوضح كيف تحول Bug في البرودكشن إلى منشور تقني جذاب ينال مئات التفاعلات.">
       <span class="badge badge-cyan">18 / مثال واقعي من الكود</span>
       <h2 class="slide-title">البرمجة كنز لصناعة المحتوى</h2>
       <div class="grid-2" style="margin-bottom: 20px;">
         <div class="diff-bad">
-          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>جاف وممل:</strong><br>
+          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg> <strong>جاف وممل:</strong><br>
           Fixed a production bug today.
         </div>
         <div class="diff-good">
-          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>قصة واقعية:</strong><br>
+          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <strong>قصة واقعية:</strong><br>
           "كنت مفكر المشكلة من بطء الـ API... طلعت من Race Condition نادرة بين تو سيرفسز."
         </div>
       </div>
       <div class="glass-card">
         <h4 style="color: var(--cyan); margin-bottom: 10px;">ثم تشارك الخطوات الـ 5:</h4>
         <p style="font-size: 1.15rem; color: #e2e8f0; display: flex; justify-content: space-between;">
-          <span>1. شو صار؟</span> ➔ 
-          <span>2. ليش صار؟</span> ➔ 
-          <span>3. كيف اكتشفته؟</span> ➔ 
-          <span>4. كيف حلّيته؟</span> ➔ 
+          <span>1. شو صار؟</span> ➔
+          <span>2. ليش صار؟</span> ➔
+          <span>3. كيف اكتشفته؟</span> ➔
+          <span>4. كيف حلّيته؟</span> ➔
           <span>5. شو الدرس؟</span>
         </p>
       </div>
     </div>
 
     <!-- Slide 20 -->
-    <div class="slide" data-notes="اشرح مصفوفة التنويع. لا تخلي كل منشوراتك تعلم فقط، ولا إنجاز فقط. التوازن يصنع مصداقية وجاذبية.">
+    <div class="slide"
+      data-notes="اشرح مصفوفة التنويع. لا تخلي كل منشوراتك تعلم فقط، ولا إنجاز فقط. التوازن يصنع مصداقية وجاذبية.">
       <span class="badge badge-purple">19 / مصفوفة المحتوى</span>
       <h2 class="slide-title">4 أنواع لمنشورات متوازنة</h2>
       <div class="grid-2" style="gap: 20px;">
@@ -1193,20 +1342,30 @@
         </div>
         <div class="glass-card" style="border-top: 3px solid #10b981;">
           <h3 style="color: #34d399; margin-bottom: 8px;">04 — Proof</h3>
-          <p style="color: var(--text-sub); font-size: 1.1rem;">عميل راضٍ، ترقية، إطلاق تطبيق، أو نتائج مقياس أداء حقيقي.</p>
+          <p style="color: var(--text-sub); font-size: 1.1rem;">عميل راضٍ، ترقية، إطلاق تطبيق، أو نتائج مقياس أداء
+            حقيقي.</p>
         </div>
       </div>
     </div>
 
     <!-- Slide 21 -->
-    <div class="slide" data-notes="الناس تنفر من الغرور وتنجذب لمن يساعدها. غير نبرة المنشور من 'أنا خارق' إلى 'هذه معلومة ستفيدك'.">
+    <div class="slide"
+      data-notes="الناس تنفر من الغرور وتنجذب لمن يساعدها. غير نبرة المنشور من 'أنا خارق' إلى 'هذه معلومة ستفيدك'.">
       <span class="badge badge-rose">20 / عقلية العطاء</span>
       <h2 class="slide-title">لا تنشر لتقول "شوفوني"...<br><span>انشر عشان تقول: "هذا شيء ممكن يفيدكم."</span></h2>
       <div class="diff-bad" style="margin-bottom: 16px;">
-        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>أنانية واحتفالية فارغة:</strong> "I am extremely humbled and excited to announce..."
+        <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg> <strong>أنانية واحتفالية فارغة:</strong> "I am extremely humbled and excited to announce..."
       </div>
       <div class="diff-good" style="margin-bottom: 24px;">
-        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>مشاركة القيمة والدرس:</strong> شارك التحدي الحقيقي، الكواليس، الفشل، وما يمكن للقارئ تطبيقه غداً في عمله.
+        <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg> <strong>مشاركة القيمة والدرس:</strong> شارك التحدي الحقيقي، الكواليس، الفشل، وما يمكن للقارئ تطبيقه غداً
+        في عمله.
       </div>
       <div class="quote-box" style="border-right-color: var(--rose); text-align: center; font-size: 1.4rem;">
         القيمة المقدمة للجمهور هي التي تحول المتابع العابر إلى داعم لرحلتك.
@@ -1214,60 +1373,98 @@
     </div>
 
     <!-- Slide 22 -->
-    <div class="slide" data-notes="الاستمرارية لا تعني النشر اليومي المرهق، بل الاتساق في المواضيع والمواعيد حتى يتعرف الخوارزم والجمهور على هويتك.">
+    <div class="slide"
+      data-notes="الاستمرارية لا تعني النشر اليومي المرهق، بل الاتساق في المواضيع والمواعيد حتى يتعرف الخوارزم والجمهور على هويتك.">
       <span class="badge badge-amber">21 / الاستمرارية (Consistency)</span>
       <h2 class="slide-title">مش لازم تنشر كل يوم... لكن لازم تكون متسق.</h2>
       <p class="slide-subtitle">تشتت المواضيع يدمر التموضع:</p>
       <div class="glass-card" style="margin-bottom: 24px; font-size: 1.1rem; line-height: 1.8;">
-        إذا نشرت اليوم عن <span style="color: #38bdf8;">AI</span>، وبكرا عن <span style="color: #f43f5e;">Gym</span>، وبعده عن <span style="color: #fbbf24;">Crypto</span>، وبعده عن <span style="color: #34d399;">Food</span>...<br>
+        إذا نشرت اليوم عن <span style="color: #38bdf8;">AI</span>، وبكرا عن <span style="color: #f43f5e;">Gym</span>،
+        وبعده عن <span style="color: #fbbf24;">Crypto</span>، وبعده عن <span style="color: #34d399;">Food</span>...<br>
         الجمهور رح يسأل تلقائياً: <strong>"هو هذا الشخص شو تخصصه بالضبط؟"</strong>
       </div>
       <h3 style="text-align: center; color: #fbbf24; font-size: 1.6rem;">اختر 2 إلى 3 محاور أساسية والتزم بها.</h3>
     </div>
 
     <!-- Slide 23 -->
-    <div class="slide" data-notes="الهدف النهائي للبراندينج هو أن يظهر اسمك في رأس الشخص بمجرد ذكر مجالك. هذا هو العائد الأكبر على الاستثمار.">
+    <div class="slide"
+      data-notes="الهدف النهائي للبراندينج هو أن يظهر اسمك في رأس الشخص بمجرد ذكر مجالك. هذا هو العائد الأكبر على الاستثمار.">
       <span class="badge badge-purple">22 / الارتباط الذهني</span>
       <h2 class="slide-title">هدفك مش بس أرقام متابعين... هدفك: Association.</h2>
       <div class="grid-3" style="margin-top: 24px;">
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></div>
           <h3 style="color: #c084fc;">لما يسمعوا Backend</h3>
           <p style="color: var(--text-sub); margin-top: 8px;">يفكروا فيك أول اسم</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="16" x="4" y="4" rx="2" />
+              <rect width="6" height="6" x="9" y="9" rx="1" />
+              <path d="M15 2v2" />
+              <path d="M15 20v2" />
+              <path d="M2 15h2" />
+              <path d="M2 9h2" />
+              <path d="M20 15h2" />
+              <path d="M20 9h2" />
+              <path d="M9 2v2" />
+              <path d="M9 20v2" />
+            </svg></div>
           <h3 style="color: #38bdf8;">لما يطلبوا AI Products</h3>
           <p style="color: var(--text-sub); margin-top: 8px;">يتذكروك فوراً</p>
         </div>
         <div class="glass-card" style="text-align: center;">
-          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <div class="icon-wrap"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+              <polyline points="16 7 22 7 22 13" />
+            </svg></div>
           <h3 style="color: #34d399;">لما تفتح فرصة مهنية</h3>
           <p style="color: var(--text-sub); margin-top: 8px;">تكون الخيار البديهي</p>
         </div>
       </div>
-      <h3 style="text-align: center; margin-top: 30px; font-size: 1.8rem; color: #f8fafc;">هذا هو الجوهر الحقيقي للـ Personal Brand.</h3>
+      <h3 style="text-align: center; margin-top: 30px; font-size: 1.8rem; color: #f8fafc;">هذا هو الجوهر الحقيقي للـ
+        Personal Brand.</h3>
     </div>
 
     <!-- Slide 24 -->
-    <div class="slide" data-notes="الادعاء سهل ومتاح للجميع. الأثر والمشاريع الحقيقية هي التي تفصل بين المطور المتمكن ومدعي المعرفة.">
+    <div class="slide"
+      data-notes="الادعاء سهل ومتاح للجميع. الأثر والمشاريع الحقيقية هي التي تفصل بين المطور المتمكن ومدعي المعرفة.">
       <span class="badge badge-emerald">23 / برهان العمل (Proof of Work)</span>
       <h2 class="slide-title">لا تقل إنك تعرف... أثبت.</h2>
       <div class="grid-2" style="margin: 20px 0;">
         <div class="diff-bad">
-          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>ادعاء مجرد:</strong><br>
+          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg> <strong>ادعاء مجرد:</strong><br>
           "I know Node.js and microservices."
         </div>
         <div class="diff-good">
-          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>إثبات عملي:</strong><br>
+          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <strong>إثبات عملي:</strong><br>
           "Built a high-throughput microservice handling 5k req/sec."
         </div>
         <div class="diff-bad">
-          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> <strong>ادعاء مجرد:</strong><br>
+          <svg class="icon inline-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg> <strong>ادعاء مجرد:</strong><br>
           "I'm very interested in AI agents."
         </div>
         <div class="diff-good">
-          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <strong>إثبات عملي:</strong><br>
+          <svg class="icon inline-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <strong>إثبات عملي:</strong><br>
           "Built an open-source agent that automates PR reviews."
         </div>
       </div>
@@ -1275,7 +1472,8 @@
     </div>
 
     <!-- Slide 25 -->
-    <div class="slide" data-notes="LinkedIn يفتح الباب للمحادثة، لكن GitHub هو الفحص الفني الحاسم عند مدراء التوظيف والمهندسين.">
+    <div class="slide"
+      data-notes="LinkedIn يفتح الباب للمحادثة، لكن GitHub هو الفحص الفني الحاسم عند مدراء التوظيف والمهندسين.">
       <span class="badge badge-blue">24 / قوة GitHub</span>
       <h2 class="slide-title">LinkedIn يقول مين أنت...<br><span>GitHub يثبت إنك بتعرف تبني.</span></h2>
       <div class="glass-card">
@@ -1285,13 +1483,15 @@
           <div><strong>Pinned Projects:</strong></strong> لأقوى 3-4 مشاريع حقيقية</div>
           <div><strong>Clear READMEs:</strong></strong> شرح، صور، وكيفية التشغيل</div>
           <div><strong>Real Working Code:</strong></strong> منتجات وليس تمارين منسوخة</div>
-          <div style="grid-column: span 2;"><strong>Consistent Activity:</strong></strong> يوضح شغفك واستمراريتك الهندسية</div>
+          <div style="grid-column: span 2;"><strong>Consistent Activity:</strong></strong> يوضح شغفك واستمراريتك
+            الهندسية</div>
         </div>
       </div>
     </div>
 
     <!-- Slide 26 -->
-    <div class="slide" data-notes="تمرين تفاعلي: اطلب منهم يفتحوا متصفح التخفي ويكتبوا اسمهم بجوجل الآن ويشوفوا النتيجة.">
+    <div class="slide"
+      data-notes="تمرين تفاعلي: اطلب منهم يفتحوا متصفح التخفي ويكتبوا اسمهم بجوجل الآن ويشوفوا النتيجة.">
       <span class="badge badge-cyan">25 / اختبار الواقع</span>
       <h2 class="slide-title">اعملها الآن: افتح Google واكتب اسمك.</h2>
       <div class="quote-box" style="border-right-color: var(--cyan); font-size: 1.6rem; margin: 30px 0;">
@@ -1306,7 +1506,8 @@
     <div class="slide" data-notes="هذه المعادلة تجمع كل محاور السيمينار في قانون رياضي بسيط وسهل الحفظ.">
       <span class="badge badge-purple">26 / المعادلة الشاملة</span>
       <h2 class="slide-title">معادلة هويتك الرقمية</h2>
-      <div class="quote-box" style="border-right-color: #a855f7; text-align: center; font-size: 2.2rem; font-weight: 900;">
+      <div class="quote-box"
+        style="border-right-color: #a855f7; text-align: center; font-size: 2.2rem; font-weight: 900;">
         Clarity × Consistency × Credibility × Content
       </div>
       <div class="grid-4" style="margin-top: 24px;">
@@ -1336,15 +1537,18 @@
       <div class="grid-4" style="margin-bottom: 24px;">
         <div class="glass-card">
           <h4 style="color: #38bdf8;">Week 1</h4>
-          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">رتّب أساسات البروفايل (الصورة، البانر، الهيدلاين، والـ About).</p>
+          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">رتّب أساسات البروفايل (الصورة، البانر، الهيدلاين،
+            والـ About).</p>
         </div>
         <div class="glass-card">
           <h4 style="color: #a855f7;">Week 2</h4>
-          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">انشر أول منشورين بقيمة حقيقية (درس تقني + كواليس بناء).</p>
+          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">انشر أول منشورين بقيمة حقيقية (درس تقني + كواليس
+            بناء).</p>
         </div>
         <div class="glass-card">
           <h4 style="color: #34d399;">Week 3</h4>
-          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">حسّن GitHub وثبّت أفضل مشاريعك مع توثيق احترافي.</p>
+          <p style="font-size: 1rem; color: #e2e8f0; margin-top: 8px;">حسّن GitHub وثبّت أفضل مشاريعك مع توثيق احترافي.
+          </p>
         </div>
         <div class="glass-card">
           <h4 style="color: #fbbf24;">Week 4</h4>
@@ -1357,7 +1561,8 @@
     </div>
 
     <!-- Slide 29 -->
-    <div class="slide" data-notes="الخطوة التالية الملموسة. اطلب منهم تصوير هذه الشاشة لتكون ورقة العمل التي ينطلقون منها الليلة.">
+    <div class="slide"
+      data-notes="الخطوة التالية الملموسة. اطلب منهم تصوير هذه الشاشة لتكون ورقة العمل التي ينطلقون منها الليلة.">
       <span class="badge badge-cyan">28 / خارطة التطبيق</span>
       <h2 class="slide-title">الآن دورك... أجب عن هذه الأسئلة الـ 6:</h2>
       <div class="grid-3" style="font-size: 1.15rem; gap: 18px;">
@@ -1373,7 +1578,8 @@
     </div>
 
     <!-- Slide 30 -->
-    <div class="slide" data-notes="خاتمة ملهمة وقوية. كسر حاجز الخوف والانتظار. ليس شرطاً أن تكون خبيراً عالمياً لتشارك ما تتعلمه.">
+    <div class="slide"
+      data-notes="خاتمة ملهمة وقوية. كسر حاجز الخوف والانتظار. ليس شرطاً أن تكون خبيراً عالمياً لتشارك ما تتعلمه.">
       <span class="badge badge-purple">29 / الختام</span>
       <h2 class="slide-title" style="font-size: 3.5rem;">
         لا تنتظر أن يكتشفك الناس...<br>
@@ -1385,10 +1591,12 @@
     </div>
 
     <!-- Slide 31 -->
-    <div class="slide" data-notes="السؤال النهائي الذي يتركهم يفكرون حتى بعد انتهاء الجلسة. شكر الحضور وفتح باب الأسئلة.">
+    <div class="slide"
+      data-notes="السؤال النهائي الذي يتركهم يفكرون حتى بعد انتهاء الجلسة. شكر الحضور وفتح باب الأسئلة.">
       <span class="badge badge-rose">30 / السؤال الذهبي</span>
       <h2 class="slide-title">سؤال أخير...</h2>
-      <div class="quote-box" style="border-right-color: var(--rose); font-size: 2rem; line-height: 1.6; margin: 30px 0;">
+      <div class="quote-box"
+        style="border-right-color: var(--rose); font-size: 2rem; line-height: 1.6; margin: 30px 0;">
         "لو أعطيتك 30 ثانية حتى تقنع شخصاً إنك مهندس يستحق المتابعة والشراكة... شو رح تحكيله؟"
       </div>
       <h3 style="text-align: center; font-size: 2.2rem; font-weight: 900; color: #38bdf8; margin-top: 30px;">
@@ -1396,15 +1604,30 @@
       </h3>
 
       <div style="margin-top: 36px; text-align: center;">
-        <div style="display: inline-flex; align-items: center; gap: 14px; direction: ltr; font-family: var(--font-code); font-size: 0.95rem; background: #12141a; border: 1px solid var(--border-subtle); padding: 9px 24px; border-radius: 8px;">
-          <span style="color: #60a5fa; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Talkers //</span>
-          <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer" class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Bayan Reqib">
-            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+        <div
+          style="display: inline-flex; align-items: center; gap: 14px; direction: ltr; font-family: var(--font-code); font-size: 0.95rem; background: #12141a; border: 1px solid var(--border-subtle); padding: 9px 24px; border-radius: 8px;">
+          <span
+            style="color: #60a5fa; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Talkers
+            //</span>
+          <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer"
+            class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Bayan Reqib">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+              <rect width="24" height="24" rx="4" fill="#0a66c2" />
+              <path
+                d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+                fill="#ffffff" />
+            </svg>
             Eng. Bayan Reqib
           </a>
           <span style="color: var(--text-muted);">&amp;</span>
-          <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link" style="color: #ffffff; font-weight: 600;" title="LinkedIn: Eng. Izzedeen Alfarra">
-            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+          <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link"
+            style="color: #ffffff; font-weight: 600;" title="LinkedIn: Izzedeen Ahmed Alfarra">
+            <svg width="15" height="15" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+              <rect width="24" height="24" rx="4" fill="#0a66c2" />
+              <path
+                d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+                fill="#ffffff" />
+            </svg>
             Eng. Izzedeen Alfarra
           </a>
         </div>
@@ -1416,27 +1639,31 @@
   <!-- Bottom Interactive Floating Bar -->
   <div class="controls">
     <button class="control-btn" id="prevBtn" title="السابق (سهم يسار)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
     </button>
-    <div class="slide-counter" id="slideCounter">1 / 31</div>
+    <div class="slide-counter" id="slideCounter">1 / 33</div>
     <button class="control-btn" id="nextBtn" title="التالي (سهم يمين أو مسافة)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </button>
     <div style="width: 1px; height: 18px; background: var(--border-subtle); margin: 0 4px;"></div>
     <button class="control-btn" id="notesBtn" title="ملاحظات المتحدث (N)">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/>
-        <path d="M15 3v6h6"/>
-        <path d="M8 13h8"/>
-        <path d="M8 17h5"/>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z" />
+        <path d="M15 3v6h6" />
+        <path d="M8 13h8" />
+        <path d="M8 17h5" />
       </svg>
     </button>
     <button class="control-btn" id="overviewBtn" title="نظرة شاملة للسلايدات (O)">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
         <rect width="7" height="7" x="3" y="3" rx="1.5"></rect>
         <rect width="7" height="7" x="14" y="3" rx="1.5"></rect>
         <rect width="7" height="7" x="14" y="14" rx="1.5"></rect>
@@ -1444,17 +1671,12 @@
       </svg>
     </button>
     <button class="control-btn" id="fsBtn" title="ملء الشاشة (F)">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
         <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
         <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
         <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
         <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
-      </svg>
-    </button>
-    <button class="control-btn" id="lockBtn" title="قفل العرض (Lock Presentation)" onclick="lockPresentation()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
       </svg>
     </button>
   </div>
@@ -1463,11 +1685,12 @@
   <div class="notes-drawer" id="notesDrawer">
     <div class="notes-header">
       <div style="display: flex; align-items: center; gap: 8px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/>
-          <path d="M15 3v6h6"/>
-          <path d="M8 13h8"/>
-          <path d="M8 17h5"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z" />
+          <path d="M15 3v6h6" />
+          <path d="M8 13h8" />
+          <path d="M8 17h5" />
         </svg>
         <span>ملاحظات المتحدث (Speaker Notes)</span>
       </div>
@@ -1482,13 +1705,25 @@
   <div class="speakers-footer">
     <span class="talker-tag">Talkers</span>
     <span class="talker-names">
-      <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer" class="talker-link" title="LinkedIn: Eng. Bayan Reqib">
-        <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+      <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" target="_blank" rel="noopener noreferrer"
+        class="talker-link" title="LinkedIn: Eng. Bayan Reqib">
+        <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+          <rect width="24" height="24" rx="4" fill="#0a66c2" />
+          <path
+            d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+            fill="#ffffff" />
+        </svg>
         Eng. Bayan Reqib
       </a>
       <span style="color: var(--text-muted);">&amp;</span>
-      <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link" title="LinkedIn: Eng. Izzedeen Alfarra">
-        <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;"><rect width="24" height="24" rx="4" fill="#0a66c2"/><path d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z" fill="#ffffff"/></svg>
+      <a href="https://www.linkedin.com/in/z4dev/" target="_blank" rel="noopener noreferrer" class="talker-link"
+        title="LinkedIn: Izzedeen Ahmed Alfarra">
+        <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink: 0; vertical-align: middle;">
+          <rect width="24" height="24" rx="4" fill="#0a66c2" />
+          <path
+            d="M7.1 20.4H3.6V9h3.5v11.4zM5.3 7.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.1 12.9h-3.5v-5.5c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.6H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2z"
+            fill="#ffffff" />
+        </svg>
         Eng. Izzedeen Alfarra
       </a>
     </span>
@@ -1497,106 +1732,13 @@
   <!-- Overview Grid Modal -->
   <div class="overview-modal" id="overviewModal">
     <div class="overview-header">
-      <h2 style="color: #38bdf8; font-size: 1.6rem;">فهرس السلايدات (31 شريحة)</h2>
+      <h2 style="color: #38bdf8; font-size: 1.6rem;">فهرس السلايدات (33 شريحة)</h2>
       <button class="control-btn" onclick="toggleOverview()" style="font-size: 1.5rem;">✕</button>
     </div>
     <div class="overview-grid" id="overviewGrid"></div>
   </div>
 
   <script>
-    // ==========================================
-    // PASSWORD PROTECTION & SECURITY CONFIG
-    // ==========================================
-    // Default Password: seminar2026
-    // Uses SHA-256 cryptographic hash so password is NOT stored as readable plaintext
-    const PRESENTATION_CONFIG = {
-      passwordHash: '637c4a97accfb228fef1325afac611925fe6d86c970dd90ff39f3e3cb13d8377',
-      storageKey: 'seminar_auth_token_v1'
-    };
-
-    async function sha256(message) {
-      const msgBuffer = new TextEncoder().encode(message);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-
-    function checkAuth() {
-      const isSessionAuth = sessionStorage.getItem(PRESENTATION_CONFIG.storageKey) === 'true';
-      const isLocalAuth = localStorage.getItem(PRESENTATION_CONFIG.storageKey) === 'true';
-      if (isSessionAuth || isLocalAuth) {
-        unlockPresentation(false);
-      } else {
-        const input = document.getElementById('passwordInput');
-        if (input) setTimeout(() => input.focus(), 150);
-      }
-    }
-
-    async function handleUnlock(e) {
-      if (e) e.preventDefault();
-      const input = document.getElementById('passwordInput');
-      const errorMsg = document.getElementById('lockError');
-      const lockCard = document.querySelector('.lock-card');
-      const rememberDevice = document.getElementById('rememberDevice').checked;
-
-      const enteredVal = input.value.trim();
-      if (!enteredVal) return;
-
-      const enteredHash = await sha256(enteredVal);
-
-      if (enteredHash === PRESENTATION_CONFIG.passwordHash) {
-        if (rememberDevice) {
-          localStorage.setItem(PRESENTATION_CONFIG.storageKey, 'true');
-        } else {
-          sessionStorage.setItem(PRESENTATION_CONFIG.storageKey, 'true');
-        }
-        errorMsg.style.display = 'none';
-        unlockPresentation(true);
-      } else {
-        errorMsg.style.display = 'flex';
-        lockCard.classList.remove('shake');
-        void lockCard.offsetWidth;
-        lockCard.classList.add('shake');
-        input.select();
-      }
-    }
-
-    function unlockPresentation(animate) {
-      document.body.classList.add('authenticated');
-      const lockScreen = document.getElementById('lockScreen');
-      if (lockScreen) {
-        lockScreen.classList.add('unlocked');
-      }
-    }
-
-    function lockPresentation() {
-      sessionStorage.removeItem(PRESENTATION_CONFIG.storageKey);
-      localStorage.removeItem(PRESENTATION_CONFIG.storageKey);
-      document.body.classList.remove('authenticated');
-      const lockScreen = document.getElementById('lockScreen');
-      if (lockScreen) {
-        lockScreen.classList.remove('unlocked');
-        const input = document.getElementById('passwordInput');
-        if (input) {
-          input.value = '';
-          input.focus();
-        }
-        const error = document.getElementById('lockError');
-        if (error) error.style.display = 'none';
-      }
-    }
-
-    function togglePasswordVisibility() {
-      const pwd = document.getElementById('passwordInput');
-      const eyeIcon = document.getElementById('eyeIcon');
-      if (pwd.type === 'password') {
-        pwd.type = 'text';
-        eyeIcon.innerHTML = `<path d="m2 2 20 20"/><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>`;
-      } else {
-        pwd.type = 'password';
-        eyeIcon.innerHTML = `<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>`;
-      }
-    }
 
     // Slide Engine Variables
     const slides = document.querySelectorAll('.slide');
@@ -1679,7 +1821,7 @@
     slides.forEach((slide, idx) => {
       const titleEl = slide.querySelector('.slide-title');
       const titleText = titleEl ? titleEl.innerText.replace(/\n/g, ' ') : `الشريحة ${idx + 1}`;
-      
+
       const item = document.createElement('div');
       item.className = `overview-item ${idx === 0 ? 'current' : ''}`;
       item.innerHTML = `
@@ -1702,11 +1844,6 @@
 
     // Keyboard Controls
     window.addEventListener('keydown', (e) => {
-      // Don't trigger shortcuts if presentation is locked
-      const lockScreen = document.getElementById('lockScreen');
-      if (lockScreen && !lockScreen.classList.contains('unlocked')) {
-        return;
-      }
 
       if (overviewModal.classList.contains('open')) {
         if (e.key === 'Escape' || e.key === 'o' || e.key === 'O') {
@@ -1767,11 +1904,6 @@
     }, { passive: true });
 
     function handleSwipe() {
-      // Don't swipe if locked
-      const lockScreen = document.getElementById('lockScreen');
-      if (lockScreen && !lockScreen.classList.contains('unlocked')) {
-        return;
-      }
 
       const swipeDistance = touchEndX - touchStartX;
       if (Math.abs(swipeDistance) > 40) {
@@ -1784,13 +1916,9 @@
       }
     }
 
-    // Expose quick lock and hash generator helper in DevTools
-    window.sha256 = sha256;
-    window.lockPresentation = lockPresentation;
-
     // Initialize
     updateSlide(0);
-    checkAuth();
   </script>
 </body>
+
 </html>

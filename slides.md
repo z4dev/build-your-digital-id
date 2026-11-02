@@ -3,7 +3,7 @@ marp: true
 theme: tech
 paginate: true
 size: 16:9
-footer: "Talkers: Eng. Bayan Reqib & Eng. Izzedeen Alfarra"
+footer: "Talkers: Eng. Bayan Reqib & Izzedeen Ahmed Alfarra"
 style: |
   section {
     direction: rtl;
@@ -68,11 +68,98 @@ style: |
     الفرق بين مبرمج شاطر بس بالظل، ومهندس عادي العروض بتنزل عليه مثل المطر، مش شطارة كود بس... السر كله بالـ Personal Brand، وضوح التموضع، وبرهان العمل الحقيقي (Proof of Work).
   </p>
   <div style="font-family: monospace; font-size: 0.95rem; color: #a1a1aa; background: #161b22; display: inline-block; padding: 8px 22px; border-radius: 8px; border: 1px solid #30363d; direction: ltr;">
-    <span style="color: #58a6ff; font-weight: 600;">Talkers //</span> <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" style="color: #e6edf3;">Eng. Bayan Reqib</a> &amp; <a href="https://www.linkedin.com/in/z4dev/" style="color: #e6edf3;">Eng. Izzedeen Alfarra</a>
+    <span style="color: #58a6ff; font-weight: 600;">Talkers //</span> <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" style="color: #e6edf3;">Eng. Bayan Reqib</a> &amp; <a href="https://www.linkedin.com/in/z4dev/" style="color: #e6edf3;">Izzedeen Ahmed Alfarra</a>
   </div>
 </div>
 
 ---
+
+<!-- Slide 2: Speaker Intro -->
+### المتحدث
+# عز الدين أحمد الفرا | Izzedeen Ahmed Alfarra
+**Software Engineer & Healthcare Integration Officer @ Kayan Healthcare**
+
+<div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: stretch; margin-top: 14px;">
+  <div style="background: #161b22; padding: 20px; border-radius: 12px; border: 1px solid #30363d; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <img src="about_izzedeen/izzedeen_pfp.jpg" style="width: 110px; height: 110px; border-radius: 10px; object-fit: cover; border: 1px solid #30363d; margin-bottom: 12px;" />
+      <h3 style="margin: 0; color: #ffffff; font-size: 1.15rem;">@z4dev</h3>
+      <p style="color: #8b949e; font-size: 0.85rem; margin-top: 4px; line-height: 1.5;">
+        جامعة الأزهر — غزة · القاهرة<br>
+        <span style="color: #e3b341; font-size: 0.78rem;">(باقي 17 ساعة دراسية لو ما شلت مواد... وبصير أحط قبل اسمي Eng)</span>
+      </p>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #21262d; font-size: 0.8rem; color: #c9d1d9; line-height: 1.5; text-align: right;">
+      • بنسوي بودكاست أنا وبيان الرقب (Two Talkers) بنحكي فيه بأمور تقنية مختلفة.<br>
+      • قدّمت أكثر من ورشة عمل في بناء الهوية الرقمية للمطورين.<br>
+      • بشرح لطلاب الجامعات ع يوتيوب ودرّست 10+ طلاب من سلطنة عُمان.<br>
+      • +5,500 متابع على لينكدإن ويوتيوب، وسفير مع TAP (أجدع ناس بالعالم) في برنامج الـ Job Hunting Program.
+    </div>
+    <div style="margin-top: 10px; font-size: 0.78rem; color: #8b949e; direction: ltr; text-align: center;">
+      youtube.com/@EzzAldeenDev · linkedin.com/in/z4dev
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="background: #161b22; border-right: 4px solid #58a6ff; border-radius: 8px; padding: 14px 18px;">
+      <span style="font-family: monospace; font-size: 0.75rem; color: #58a6ff; text-transform: uppercase;">Work &amp; Backend</span>
+      <h3 style="margin: 4px 0 6px 0; font-size: 1.05rem; color: #ffffff;">أنظمة الباك إند والربط الصحي في Kayan</h3>
+      <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #c9d1d9;">
+        مسؤول عن بناء وتشغيل الـ middleware switch لنقل مطالبات التأمين الصحي (e-claims) بمعايير FHIR و HL7 بين المستشفيات وجهات الدفع في المنطقة، وتطوير خوارزميات deduplication لمنع ازدواجية المطالبات.
+      </p>
+    </div>
+
+    <div style="background: #161b22; border-right: 4px solid #3fb950; border-radius: 8px; padding: 14px 18px;">
+      <span style="font-family: monospace; font-size: 0.75rem; color: #3fb950; text-transform: uppercase;">Context &amp; Goal</span>
+      <h3 style="margin: 4px 0 6px 0; font-size: 1.05rem; color: #ffffff;">ليش بنحكي عن الهوية الرقمية اليوم؟</h3>
+      <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #c9d1d9;">
+        من واقع الورشات اللي قدّمتها وتعاملي المباشر مع الطلاب والمهندسين، أكبر مشكلة بتواجه أغلب المبرمجين الشاطرين إنهم شغالين بالظل. كل خطوة رح نطرحها اليوم هي نفس التجربة اللي طبقتها وعملت فرق حقيقي بنقلي لسوق العمل قبل التخرج.
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+
+<!-- Slide 3: Workshop Rules -->
+### قبل ما نبدأ
+# كيف تحقق أقصى استفادة من هذه الورشة؟
+
+**الفرق بين ورشة بتسمعها وبتنساها، وورشة بتغيّر مسارك المهني... هو كيف رح تتعامل مع هالساعة القادمة.**
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px;">
+  <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px;">
+    <div style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #58a6ff; margin-bottom: 6px;">01</div>
+    <h3 style="margin: 0 0 6px 0; font-size: 1.1rem; color: #ffffff;">افتح بروفايلك الآن</h3>
+    <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #8b949e;">افتح LinkedIn و GitHub بجانبك، وقيّم حساباتك مع كل شريحة بنشرحها بدل الاستماع السلبي.</p>
+  </div>
+
+  <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px;">
+    <div style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #3fb950; margin-bottom: 6px;">02</div>
+    <h3 style="margin: 0 0 6px 0; font-size: 1.1rem; color: #ffffff;">سجّل الـ Action Items</h3>
+    <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #8b949e;">أي نقطة بتحس إنها ناقصة عندك، اكتبها كـ Task للتعديل اليوم مش بعد أسبوع.</p>
+  </div>
+
+  <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px;">
+    <div style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #d2a8ff; margin-bottom: 6px;">03</div>
+    <h3 style="margin: 0 0 6px 0; font-size: 1.1rem; color: #ffffff;">اسأل وناقش</h3>
+    <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #8b949e;">الورشة تفاعلية؛ إذا عندك حالة خاصة أو تساؤل عن تخصصك، اطرحه للنقاش فوراً.</p>
+  </div>
+
+  <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px;">
+    <div style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #e3b341; margin-bottom: 6px;">04</div>
+    <h3 style="margin: 0 0 6px 0; font-size: 1.1rem; color: #ffffff;">اخرج بقرار واحد</h3>
+    <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #8b949e;">قيمة الورشة مش بحفظ المعلومات، بل بقرار عملي واحد تبدأ بتنفيذه الليلة.</p>
+  </div>
+</div>
+
+<div style="background: #161b22; border-right: 4px solid #3fb950; border-radius: 8px; padding: 14px 20px; margin-top: 24px;">
+  <p style="margin: 0; font-size: 1rem; color: #e6edf3;">"المعلومة بدون تطبيق بتتحول لحمل ذهني... الهدف اليوم إنك تطلع بخطة عمل قابلة للتنفيذ المباشر."</p>
+</div>
+
+---
+
 
 <!-- Slide 2 -->
 ### 01 / صدمة البداية
@@ -487,5 +574,5 @@ Building scalable & resilient digital products
 ### هذا هو الـ Personal Brand اللي لازم تبدأ تبنيه من اليوم.
 
 <div style="text-align: center; margin-top: 40px; font-family: monospace; font-size: 0.95rem; color: #a1a1aa; direction: ltr;">
-  <span style="color: #58a6ff; font-weight: 600;">Talkers //</span> <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" style="color: #58a6ff;">Eng. Bayan Reqib</a> &amp; <a href="https://www.linkedin.com/in/z4dev/" style="color: #58a6ff;">Eng. Izzedeen Alfarra</a>
+  <span style="color: #58a6ff; font-weight: 600;">Talkers //</span> <a href="https://www.linkedin.com/in/bayan-reqib-20b160248/" style="color: #58a6ff;">Eng. Bayan Reqib</a> &amp; <a href="https://www.linkedin.com/in/z4dev/" style="color: #58a6ff;">Izzedeen Ahmed Alfarra</a>
 </div>
